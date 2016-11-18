@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1573de728f1b43d2bd178298471ee426" Name="Diagram1">
+        <EntityTypeShape EntityType="bd_bienestarModel.responsable_categoria" Width="1.5" PointX="11" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_bienestarModel.tbl_actividad_empleado" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_bienestarModel.tbl_actividad_gimnasio" Width="1.5" PointX="5.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_bienestarModel.tbl_asignacion_locker" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_bienestarModel.tbl_categoria" Width="1.5" PointX="8.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_bienestarModel.tbl_categoria_cultura" Width="1.5" PointX="6" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_bienestarModel.tbl_categoria_usuario" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_bienestarModel.tbl_deporte" Width="1.5" PointX="8" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_bienestarModel.tbl_entrenador" Width="1.5" PointX="5.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_bienestarModel.tbl_entrenamiento" Width="1.5" PointX="10.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_bienestarModel.tbl_grupo" Width="1.5" PointX="8.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_bienestarModel.tbl_horario" Width="1.5" PointX="3.75" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_bienestarModel.tbl_inscripcion" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_bienestarModel.tbl_locker" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_bienestarModel.tbl_tarifa" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_bienestarModel.tbl_tipo_ingreso" Width="1.5" PointX="0.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_bienestarModel.tbl_titulo_cultural" Width="1.5" PointX="3.75" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="bd_bienestarModel.tbl_torneo_interno" Width="1.5" PointX="0.75" PointY="9.875" IsExpanded="true" />
+        <AssociationConnector Association="bd_bienestarModel.FK__responsab__id_ca__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_bienestarModel.FK__responsab__id_gr__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_bienestarModel.FK__tbl_inscr__id_ac__1CF15040" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_bienestarModel.FK__tbl_asign__id_ca__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_bienestarModel.FK__tbl_asign__id_lo__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_bienestarModel.FK__tbl_categ__id_ca__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_bienestarModel.FK__tbl_categ__id_ho__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_bienestarModel.FK__tbl_categ__valor__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_bienestarModel.FK__tbl_inscr__id_ca__1BFD2C07" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_bienestarModel.FK__tbl_tarif__id_ca__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_bienestarModel.FK__tbl_depor__dni_e__22AA2996" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_bienestarModel.FK__tbl_entre__id_de__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_bienestarModel.FK__tbl_inscr__id_to__1DE57479" ManuallyRouted="false" />
+        <AssociationConnector Association="bd_bienestarModel.FK__tbl_tarif__id_ti__2C3393D0" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

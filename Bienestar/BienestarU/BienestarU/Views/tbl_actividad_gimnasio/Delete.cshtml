@@ -1,0 +1,48 @@
+﻿@model BienestarU.Models.tbl_actividad_gimnasio
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ACTIVIDADES GIMNASIO</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre_actividad_gym)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre_actividad_gym)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.horario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.horario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lugar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lugar)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

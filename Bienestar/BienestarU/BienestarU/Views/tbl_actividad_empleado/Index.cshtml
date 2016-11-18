@@ -1,0 +1,45 @@
+﻿@model IEnumerable<BienestarU.Models.tbl_actividad_empleado>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>ACTIVIDADES EMPLEADO</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.lugar_actividad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_actividad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hora_actividad)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.lugar_actividad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha_actividad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hora_actividad)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_actividad }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_actividad }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_actividad })
+        </td>
+    </tr>
+}
+
+</table>

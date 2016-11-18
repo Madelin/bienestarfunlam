@@ -1,0 +1,1076 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="bd_bienestarModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="responsable_categoria">
+          <Key>
+            <PropertyRef Name="id_responsable" />
+          </Key>
+          <Property Name="id_responsable" Type="int" Nullable="false" />
+          <Property Name="nombre_responsable" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="correo_responsable" Type="varchar" MaxLength="30" />
+          <Property Name="tel_responsable" Type="int" />
+          <Property Name="coordinador" Type="varchar" MaxLength="30" />
+          <Property Name="tel_coordinador" Type="int" />
+          <Property Name="correo_coordinador" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="id_grupo" Type="int" Nullable="false" />
+          <Property Name="id_categoria" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_actividad_empleado">
+          <Key>
+            <PropertyRef Name="id_actividad" />
+          </Key>
+          <Property Name="id_actividad" Type="int" Nullable="false" />
+          <Property Name="lugar_actividad" Type="varchar" MaxLength="50" />
+          <Property Name="fecha_actividad" Type="date" />
+          <Property Name="hora_actividad" Type="time" Precision="7" />
+        </EntityType>
+        <EntityType Name="tbl_actividad_gimnasio">
+          <Key>
+            <PropertyRef Name="id_actividad_gym" />
+          </Key>
+          <Property Name="id_actividad_gym" Type="int" Nullable="false" />
+          <Property Name="nombre_actividad_gym" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="horario" Type="varchar" MaxLength="30" />
+          <Property Name="lugar" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="tbl_asignacion_locker">
+          <Key>
+            <PropertyRef Name="id_asignacion" />
+          </Key>
+          <Property Name="id_asignacion" Type="int" Nullable="false" />
+          <Property Name="id_locker" Type="int" Nullable="false" />
+          <Property Name="id_categoria_usuario" Type="int" Nullable="false" />
+          <Property Name="dni_usuario" Type="nchar" MaxLength="10" />
+          <Property Name="Nombre_usuario" Type="varchar" MaxLength="50" />
+          <Property Name="Apellidos_usuario" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_categoria">
+          <Key>
+            <PropertyRef Name="id_categoria" />
+          </Key>
+          <Property Name="id_categoria" Type="int" Nullable="false" />
+          <Property Name="nombre_categoria" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tbl_categoria_cultura">
+          <Key>
+            <PropertyRef Name="id_categoria_cultura" />
+          </Key>
+          <Property Name="id_categoria_cultura" Type="int" Nullable="false" />
+          <Property Name="id_titulo" Type="int" />
+          <Property Name="descripcion" Type="varchar" MaxLength="30" />
+          <Property Name="id_horario" Type="int" Nullable="false" />
+          <Property Name="id_categoria_usuario" Type="int" Nullable="false" />
+          <Property Name="valor" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_categoria_usuario">
+          <Key>
+            <PropertyRef Name="id_categoria_usuario" />
+          </Key>
+          <Property Name="id_categoria_usuario" Type="int" Nullable="false" />
+          <Property Name="categoria_usuario" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tbl_deporte">
+          <Key>
+            <PropertyRef Name="id_deporte" />
+          </Key>
+          <Property Name="id_deporte" Type="int" Nullable="false" />
+          <Property Name="nombre_deporte" Type="varchar" MaxLength="50" />
+          <Property Name="valor" Type="int" />
+          <Property Name="dni_entrenador" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_entrenador">
+          <Key>
+            <PropertyRef Name="dni_entrenador" />
+          </Key>
+          <Property Name="dni_entrenador" Type="int" Nullable="false" />
+          <Property Name="nombre_entrenador" Type="varchar" MaxLength="50" />
+          <Property Name="apellidos_entrenador" Type="varchar" MaxLength="50" />
+          <Property Name="telefono" Type="int" />
+          <Property Name="correo" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_entrenamiento">
+          <Key>
+            <PropertyRef Name="id_entrenamiento" />
+          </Key>
+          <Property Name="id_entrenamiento" Type="int" Nullable="false" />
+          <Property Name="id_deporte" Type="int" Nullable="false" />
+          <Property Name="horario" Type="varchar" MaxLength="30" />
+          <Property Name="lugar" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="tbl_grupo">
+          <Key>
+            <PropertyRef Name="id_grupo" />
+          </Key>
+          <Property Name="id_grupo" Type="int" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tbl_horario">
+          <Key>
+            <PropertyRef Name="id_horario" />
+          </Key>
+          <Property Name="id_horario" Type="int" Nullable="false" />
+          <Property Name="dia" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="hora" Type="time" Precision="7" />
+        </EntityType>
+        <EntityType Name="tbl_inscripcion">
+          <Key>
+            <PropertyRef Name="id_inscripcion" />
+          </Key>
+          <Property Name="id_inscripcion" Type="int" Nullable="false" />
+          <Property Name="id_categoria_usuario" Type="int" Nullable="false" />
+          <Property Name="dni_usuario" Type="int" Nullable="false" />
+          <Property Name="nombres" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="apellidos" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="programa_academico" Type="varchar" MaxLength="50" />
+          <Property Name="unidad_organizativa" Type="varchar" MaxLength="50" />
+          <Property Name="id_actividad" Type="int" Nullable="false" />
+          <Property Name="id_torneo" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_locker">
+          <Key>
+            <PropertyRef Name="id_locker" />
+          </Key>
+          <Property Name="id_locker" Type="int" Nullable="false" />
+          <Property Name="numero" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_tarifa">
+          <Key>
+            <PropertyRef Name="id_tipo_ingreso" />
+          </Key>
+          <Property Name="id_tipo_ingreso" Type="int" Nullable="false" />
+          <Property Name="id_categoria_usuario" Type="int" Nullable="false" />
+          <Property Name="tarifa_ingreso" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_tipo_ingreso">
+          <Key>
+            <PropertyRef Name="id_tipo_ingreso" />
+          </Key>
+          <Property Name="id_tipo_ingreso" Type="int" Nullable="false" />
+          <Property Name="ingreso" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_titulo_cultural">
+          <Key>
+            <PropertyRef Name="id_titulo" />
+          </Key>
+          <Property Name="id_titulo" Type="int" Nullable="false" />
+          <Property Name="nombre_titulo" Type="varchar" MaxLength="50" />
+          <Property Name="descripcion" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tbl_torneo_interno">
+          <Key>
+            <PropertyRef Name="id_torneo" />
+          </Key>
+          <Property Name="id_torneo" Type="int" Nullable="false" />
+          <Property Name="nombre_torneo" Type="varchar" MaxLength="50" />
+          <Property Name="fecha_inicio" Type="date" />
+          <Property Name="fecha_fin" Type="date" />
+          <Property Name="hora" Type="time" Precision="7" />
+        </EntityType>
+        <Association Name="FK__responsab__id_ca__47DBAE45">
+          <End Role="tbl_categoria" Type="Self.tbl_categoria" Multiplicity="1" />
+          <End Role="responsable_categoria" Type="Self.responsable_categoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_categoria">
+              <PropertyRef Name="id_categoria" />
+            </Principal>
+            <Dependent Role="responsable_categoria">
+              <PropertyRef Name="id_categoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__responsab__id_gr__46E78A0C">
+          <End Role="tbl_grupo" Type="Self.tbl_grupo" Multiplicity="1" />
+          <End Role="responsable_categoria" Type="Self.responsable_categoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_grupo">
+              <PropertyRef Name="id_grupo" />
+            </Principal>
+            <Dependent Role="responsable_categoria">
+              <PropertyRef Name="id_grupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_asign__id_ca__32E0915F">
+          <End Role="tbl_categoria_usuario" Type="Self.tbl_categoria_usuario" Multiplicity="1" />
+          <End Role="tbl_asignacion_locker" Type="Self.tbl_asignacion_locker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_categoria_usuario">
+              <PropertyRef Name="id_categoria_usuario" />
+            </Principal>
+            <Dependent Role="tbl_asignacion_locker">
+              <PropertyRef Name="id_categoria_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_asign__id_lo__31EC6D26">
+          <End Role="tbl_locker" Type="Self.tbl_locker" Multiplicity="1" />
+          <End Role="tbl_asignacion_locker" Type="Self.tbl_asignacion_locker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_locker">
+              <PropertyRef Name="id_locker" />
+            </Principal>
+            <Dependent Role="tbl_asignacion_locker">
+              <PropertyRef Name="id_locker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_categ__id_ca__4E88ABD4">
+          <End Role="tbl_categoria_usuario" Type="Self.tbl_categoria_usuario" Multiplicity="1" />
+          <End Role="tbl_categoria_cultura" Type="Self.tbl_categoria_cultura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_categoria_usuario">
+              <PropertyRef Name="id_categoria_usuario" />
+            </Principal>
+            <Dependent Role="tbl_categoria_cultura">
+              <PropertyRef Name="id_categoria_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_categ__id_ho__4D94879B">
+          <End Role="tbl_horario" Type="Self.tbl_horario" Multiplicity="1" />
+          <End Role="tbl_categoria_cultura" Type="Self.tbl_categoria_cultura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_horario">
+              <PropertyRef Name="id_horario" />
+            </Principal>
+            <Dependent Role="tbl_categoria_cultura">
+              <PropertyRef Name="id_horario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_categ__valor__4CA06362">
+          <End Role="tbl_titulo_cultural" Type="Self.tbl_titulo_cultural" Multiplicity="0..1" />
+          <End Role="tbl_categoria_cultura" Type="Self.tbl_categoria_cultura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_titulo_cultural">
+              <PropertyRef Name="id_titulo" />
+            </Principal>
+            <Dependent Role="tbl_categoria_cultura">
+              <PropertyRef Name="id_titulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_depor__dni_e__22AA2996">
+          <End Role="tbl_entrenador" Type="Self.tbl_entrenador" Multiplicity="1" />
+          <End Role="tbl_deporte" Type="Self.tbl_deporte" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_entrenador">
+              <PropertyRef Name="dni_entrenador" />
+            </Principal>
+            <Dependent Role="tbl_deporte">
+              <PropertyRef Name="dni_entrenador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_entre__id_de__276EDEB3">
+          <End Role="tbl_deporte" Type="Self.tbl_deporte" Multiplicity="1" />
+          <End Role="tbl_entrenamiento" Type="Self.tbl_entrenamiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_deporte">
+              <PropertyRef Name="id_deporte" />
+            </Principal>
+            <Dependent Role="tbl_entrenamiento">
+              <PropertyRef Name="id_deporte" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_inscr__id_ac__1CF15040">
+          <End Role="tbl_actividad_empleado" Type="Self.tbl_actividad_empleado" Multiplicity="1" />
+          <End Role="tbl_inscripcion" Type="Self.tbl_inscripcion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_actividad_empleado">
+              <PropertyRef Name="id_actividad" />
+            </Principal>
+            <Dependent Role="tbl_inscripcion">
+              <PropertyRef Name="id_actividad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_inscr__id_ca__1BFD2C07">
+          <End Role="tbl_categoria_usuario" Type="Self.tbl_categoria_usuario" Multiplicity="1" />
+          <End Role="tbl_inscripcion" Type="Self.tbl_inscripcion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_categoria_usuario">
+              <PropertyRef Name="id_categoria_usuario" />
+            </Principal>
+            <Dependent Role="tbl_inscripcion">
+              <PropertyRef Name="id_categoria_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_inscr__id_to__1DE57479">
+          <End Role="tbl_torneo_interno" Type="Self.tbl_torneo_interno" Multiplicity="1" />
+          <End Role="tbl_inscripcion" Type="Self.tbl_inscripcion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_torneo_interno">
+              <PropertyRef Name="id_torneo" />
+            </Principal>
+            <Dependent Role="tbl_inscripcion">
+              <PropertyRef Name="id_torneo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_tarif__id_ca__2D27B809">
+          <End Role="tbl_categoria_usuario" Type="Self.tbl_categoria_usuario" Multiplicity="1" />
+          <End Role="tbl_tarifa" Type="Self.tbl_tarifa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_categoria_usuario">
+              <PropertyRef Name="id_categoria_usuario" />
+            </Principal>
+            <Dependent Role="tbl_tarifa">
+              <PropertyRef Name="id_categoria_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_tarif__id_ti__2C3393D0">
+          <End Role="tbl_tipo_ingreso" Type="Self.tbl_tipo_ingreso" Multiplicity="1" />
+          <End Role="tbl_tarifa" Type="Self.tbl_tarifa" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_tipo_ingreso">
+              <PropertyRef Name="id_tipo_ingreso" />
+            </Principal>
+            <Dependent Role="tbl_tarifa">
+              <PropertyRef Name="id_tipo_ingreso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="bd_bienestarModelStoreContainer">
+          <EntitySet Name="responsable_categoria" EntityType="Self.responsable_categoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_actividad_empleado" EntityType="Self.tbl_actividad_empleado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_actividad_gimnasio" EntityType="Self.tbl_actividad_gimnasio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_asignacion_locker" EntityType="Self.tbl_asignacion_locker" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_categoria" EntityType="Self.tbl_categoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_categoria_cultura" EntityType="Self.tbl_categoria_cultura" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_categoria_usuario" EntityType="Self.tbl_categoria_usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_deporte" EntityType="Self.tbl_deporte" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_entrenador" EntityType="Self.tbl_entrenador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_entrenamiento" EntityType="Self.tbl_entrenamiento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_grupo" EntityType="Self.tbl_grupo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_horario" EntityType="Self.tbl_horario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_inscripcion" EntityType="Self.tbl_inscripcion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_locker" EntityType="Self.tbl_locker" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_tarifa" EntityType="Self.tbl_tarifa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_tipo_ingreso" EntityType="Self.tbl_tipo_ingreso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_titulo_cultural" EntityType="Self.tbl_titulo_cultural" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_torneo_interno" EntityType="Self.tbl_torneo_interno" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__responsab__id_ca__47DBAE45" Association="Self.FK__responsab__id_ca__47DBAE45">
+            <End Role="tbl_categoria" EntitySet="tbl_categoria" />
+            <End Role="responsable_categoria" EntitySet="responsable_categoria" />
+          </AssociationSet>
+          <AssociationSet Name="FK__responsab__id_gr__46E78A0C" Association="Self.FK__responsab__id_gr__46E78A0C">
+            <End Role="tbl_grupo" EntitySet="tbl_grupo" />
+            <End Role="responsable_categoria" EntitySet="responsable_categoria" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_asign__id_ca__32E0915F" Association="Self.FK__tbl_asign__id_ca__32E0915F">
+            <End Role="tbl_categoria_usuario" EntitySet="tbl_categoria_usuario" />
+            <End Role="tbl_asignacion_locker" EntitySet="tbl_asignacion_locker" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_asign__id_lo__31EC6D26" Association="Self.FK__tbl_asign__id_lo__31EC6D26">
+            <End Role="tbl_locker" EntitySet="tbl_locker" />
+            <End Role="tbl_asignacion_locker" EntitySet="tbl_asignacion_locker" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_categ__id_ca__4E88ABD4" Association="Self.FK__tbl_categ__id_ca__4E88ABD4">
+            <End Role="tbl_categoria_usuario" EntitySet="tbl_categoria_usuario" />
+            <End Role="tbl_categoria_cultura" EntitySet="tbl_categoria_cultura" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_categ__id_ho__4D94879B" Association="Self.FK__tbl_categ__id_ho__4D94879B">
+            <End Role="tbl_horario" EntitySet="tbl_horario" />
+            <End Role="tbl_categoria_cultura" EntitySet="tbl_categoria_cultura" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_categ__valor__4CA06362" Association="Self.FK__tbl_categ__valor__4CA06362">
+            <End Role="tbl_titulo_cultural" EntitySet="tbl_titulo_cultural" />
+            <End Role="tbl_categoria_cultura" EntitySet="tbl_categoria_cultura" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_depor__dni_e__22AA2996" Association="Self.FK__tbl_depor__dni_e__22AA2996">
+            <End Role="tbl_entrenador" EntitySet="tbl_entrenador" />
+            <End Role="tbl_deporte" EntitySet="tbl_deporte" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_entre__id_de__276EDEB3" Association="Self.FK__tbl_entre__id_de__276EDEB3">
+            <End Role="tbl_deporte" EntitySet="tbl_deporte" />
+            <End Role="tbl_entrenamiento" EntitySet="tbl_entrenamiento" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_inscr__id_ac__1CF15040" Association="Self.FK__tbl_inscr__id_ac__1CF15040">
+            <End Role="tbl_actividad_empleado" EntitySet="tbl_actividad_empleado" />
+            <End Role="tbl_inscripcion" EntitySet="tbl_inscripcion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_inscr__id_ca__1BFD2C07" Association="Self.FK__tbl_inscr__id_ca__1BFD2C07">
+            <End Role="tbl_categoria_usuario" EntitySet="tbl_categoria_usuario" />
+            <End Role="tbl_inscripcion" EntitySet="tbl_inscripcion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_inscr__id_to__1DE57479" Association="Self.FK__tbl_inscr__id_to__1DE57479">
+            <End Role="tbl_torneo_interno" EntitySet="tbl_torneo_interno" />
+            <End Role="tbl_inscripcion" EntitySet="tbl_inscripcion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_tarif__id_ca__2D27B809" Association="Self.FK__tbl_tarif__id_ca__2D27B809">
+            <End Role="tbl_categoria_usuario" EntitySet="tbl_categoria_usuario" />
+            <End Role="tbl_tarifa" EntitySet="tbl_tarifa" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_tarif__id_ti__2C3393D0" Association="Self.FK__tbl_tarif__id_ti__2C3393D0">
+            <End Role="tbl_tipo_ingreso" EntitySet="tbl_tipo_ingreso" />
+            <End Role="tbl_tarifa" EntitySet="tbl_tarifa" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="bd_bienestarModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="responsable_categoria">
+          <Key>
+            <PropertyRef Name="id_responsable" />
+          </Key>
+          <Property Name="id_responsable" Type="Int32" Nullable="false" />
+          <Property Name="nombre_responsable" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="correo_responsable" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="tel_responsable" Type="Int32" />
+          <Property Name="coordinador" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="tel_coordinador" Type="Int32" />
+          <Property Name="correo_coordinador" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_grupo" Type="Int32" Nullable="false" />
+          <Property Name="id_categoria" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tbl_categoria" Relationship="Self.FK__responsab__id_ca__47DBAE45" FromRole="responsable_categoria" ToRole="tbl_categoria" />
+          <NavigationProperty Name="tbl_grupo" Relationship="Self.FK__responsab__id_gr__46E78A0C" FromRole="responsable_categoria" ToRole="tbl_grupo" />
+        </EntityType>
+        <EntityType Name="tbl_actividad_empleado">
+          <Key>
+            <PropertyRef Name="id_actividad" />
+          </Key>
+          <Property Name="id_actividad" Type="Int32" Nullable="false" />
+          <Property Name="lugar_actividad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_actividad" Type="DateTime" Precision="0" />
+          <Property Name="hora_actividad" Type="Time" Precision="7" />
+          <NavigationProperty Name="tbl_inscripcion" Relationship="Self.FK__tbl_inscr__id_ac__1CF15040" FromRole="tbl_actividad_empleado" ToRole="tbl_inscripcion" />
+        </EntityType>
+        <EntityType Name="tbl_actividad_gimnasio">
+          <Key>
+            <PropertyRef Name="id_actividad_gym" />
+          </Key>
+          <Property Name="id_actividad_gym" Type="Int32" Nullable="false" />
+          <Property Name="nombre_actividad_gym" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="horario" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="lugar" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_asignacion_locker">
+          <Key>
+            <PropertyRef Name="id_asignacion" />
+          </Key>
+          <Property Name="id_asignacion" Type="Int32" Nullable="false" />
+          <Property Name="id_locker" Type="Int32" Nullable="false" />
+          <Property Name="id_categoria_usuario" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tbl_categoria_usuario" Relationship="Self.FK__tbl_asign__id_ca__32E0915F" FromRole="tbl_asignacion_locker" ToRole="tbl_categoria_usuario" />
+          <NavigationProperty Name="tbl_locker" Relationship="Self.FK__tbl_asign__id_lo__31EC6D26" FromRole="tbl_asignacion_locker" ToRole="tbl_locker" />
+          <Property Name="dni_usuario" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Nombre_usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Apellidos_usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_categoria">
+          <Key>
+            <PropertyRef Name="id_categoria" />
+          </Key>
+          <Property Name="id_categoria" Type="Int32" Nullable="false" />
+          <Property Name="nombre_categoria" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="responsable_categoria" Relationship="Self.FK__responsab__id_ca__47DBAE45" FromRole="tbl_categoria" ToRole="responsable_categoria" />
+        </EntityType>
+        <EntityType Name="tbl_categoria_cultura">
+          <Key>
+            <PropertyRef Name="id_categoria_cultura" />
+          </Key>
+          <Property Name="id_categoria_cultura" Type="Int32" Nullable="false" />
+          <Property Name="id_titulo" Type="Int32" />
+          <Property Name="id_horario" Type="Int32" Nullable="false" />
+          <Property Name="id_categoria_usuario" Type="Int32" Nullable="false" />
+          <Property Name="valor" Type="Int32" />
+          <NavigationProperty Name="tbl_categoria_usuario" Relationship="Self.FK__tbl_categ__id_ca__4E88ABD4" FromRole="tbl_categoria_cultura" ToRole="tbl_categoria_usuario" />
+          <NavigationProperty Name="tbl_horario" Relationship="Self.FK__tbl_categ__id_ho__4D94879B" FromRole="tbl_categoria_cultura" ToRole="tbl_horario" />
+          <NavigationProperty Name="tbl_titulo_cultural" Relationship="Self.FK__tbl_categ__valor__4CA06362" FromRole="tbl_categoria_cultura" ToRole="tbl_titulo_cultural" />
+          <Property Name="descripcion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_categoria_usuario">
+          <Key>
+            <PropertyRef Name="id_categoria_usuario" />
+          </Key>
+          <Property Name="id_categoria_usuario" Type="Int32" Nullable="false" />
+          <Property Name="categoria_usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbl_asignacion_locker" Relationship="Self.FK__tbl_asign__id_ca__32E0915F" FromRole="tbl_categoria_usuario" ToRole="tbl_asignacion_locker" />
+          <NavigationProperty Name="tbl_categoria_cultura" Relationship="Self.FK__tbl_categ__id_ca__4E88ABD4" FromRole="tbl_categoria_usuario" ToRole="tbl_categoria_cultura" />
+          <NavigationProperty Name="tbl_inscripcion" Relationship="Self.FK__tbl_inscr__id_ca__1BFD2C07" FromRole="tbl_categoria_usuario" ToRole="tbl_inscripcion" />
+          <NavigationProperty Name="tbl_tarifa" Relationship="Self.FK__tbl_tarif__id_ca__2D27B809" FromRole="tbl_categoria_usuario" ToRole="tbl_tarifa" />
+        </EntityType>
+        <EntityType Name="tbl_deporte">
+          <Key>
+            <PropertyRef Name="id_deporte" />
+          </Key>
+          <Property Name="id_deporte" Type="Int32" Nullable="false" />
+          <Property Name="nombre_deporte" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="valor" Type="Int32" />
+          <Property Name="dni_entrenador" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tbl_entrenador" Relationship="Self.FK__tbl_depor__dni_e__22AA2996" FromRole="tbl_deporte" ToRole="tbl_entrenador" />
+          <NavigationProperty Name="tbl_entrenamiento" Relationship="Self.FK__tbl_entre__id_de__276EDEB3" FromRole="tbl_deporte" ToRole="tbl_entrenamiento" />
+        </EntityType>
+        <EntityType Name="tbl_entrenador">
+          <Key>
+            <PropertyRef Name="dni_entrenador" />
+          </Key>
+          <Property Name="dni_entrenador" Type="Int32" Nullable="false" />
+          <Property Name="nombre_entrenador" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="apellidos_entrenador" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="Int32" />
+          <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbl_deporte" Relationship="Self.FK__tbl_depor__dni_e__22AA2996" FromRole="tbl_entrenador" ToRole="tbl_deporte" />
+        </EntityType>
+        <EntityType Name="tbl_entrenamiento">
+          <Key>
+            <PropertyRef Name="id_entrenamiento" />
+          </Key>
+          <Property Name="id_entrenamiento" Type="Int32" Nullable="false" />
+          <Property Name="id_deporte" Type="Int32" Nullable="false" />
+          <Property Name="horario" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="lugar" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbl_deporte" Relationship="Self.FK__tbl_entre__id_de__276EDEB3" FromRole="tbl_entrenamiento" ToRole="tbl_deporte" />
+        </EntityType>
+        <EntityType Name="tbl_grupo">
+          <Key>
+            <PropertyRef Name="id_grupo" />
+          </Key>
+          <Property Name="id_grupo" Type="Int32" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="responsable_categoria" Relationship="Self.FK__responsab__id_gr__46E78A0C" FromRole="tbl_grupo" ToRole="responsable_categoria" />
+        </EntityType>
+        <EntityType Name="tbl_horario">
+          <Key>
+            <PropertyRef Name="id_horario" />
+          </Key>
+          <Property Name="id_horario" Type="Int32" Nullable="false" />
+          <Property Name="dia" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="hora" Type="Time" Precision="7" />
+          <NavigationProperty Name="tbl_categoria_cultura" Relationship="Self.FK__tbl_categ__id_ho__4D94879B" FromRole="tbl_horario" ToRole="tbl_categoria_cultura" />
+        </EntityType>
+        <EntityType Name="tbl_inscripcion">
+          <Key>
+            <PropertyRef Name="id_inscripcion" />
+          </Key>
+          <Property Name="id_inscripcion" Type="Int32" Nullable="false" />
+          <Property Name="id_categoria_usuario" Type="Int32" Nullable="false" />
+          <Property Name="dni_usuario" Type="Int32" Nullable="false" />
+          <Property Name="nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="programa_academico" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="unidad_organizativa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_actividad" Type="Int32" Nullable="false" />
+          <Property Name="id_torneo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tbl_actividad_empleado" Relationship="Self.FK__tbl_inscr__id_ac__1CF15040" FromRole="tbl_inscripcion" ToRole="tbl_actividad_empleado" />
+          <NavigationProperty Name="tbl_categoria_usuario" Relationship="Self.FK__tbl_inscr__id_ca__1BFD2C07" FromRole="tbl_inscripcion" ToRole="tbl_categoria_usuario" />
+          <NavigationProperty Name="tbl_torneo_interno" Relationship="Self.FK__tbl_inscr__id_to__1DE57479" FromRole="tbl_inscripcion" ToRole="tbl_torneo_interno" />
+        </EntityType>
+        <EntityType Name="tbl_locker">
+          <Key>
+            <PropertyRef Name="id_locker" />
+          </Key>
+          <Property Name="id_locker" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tbl_asignacion_locker" Relationship="Self.FK__tbl_asign__id_lo__31EC6D26" FromRole="tbl_locker" ToRole="tbl_asignacion_locker" />
+          <Property Name="numero" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_tarifa">
+          <Key>
+            <PropertyRef Name="id_tipo_ingreso" />
+          </Key>
+          <Property Name="id_tipo_ingreso" Type="Int32" Nullable="false" />
+          <Property Name="id_categoria_usuario" Type="Int32" Nullable="false" />
+          <Property Name="tarifa_ingreso" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tbl_categoria_usuario" Relationship="Self.FK__tbl_tarif__id_ca__2D27B809" FromRole="tbl_tarifa" ToRole="tbl_categoria_usuario" />
+          <NavigationProperty Name="tbl_tipo_ingreso" Relationship="Self.FK__tbl_tarif__id_ti__2C3393D0" FromRole="tbl_tarifa" ToRole="tbl_tipo_ingreso" />
+        </EntityType>
+        <EntityType Name="tbl_tipo_ingreso">
+          <Key>
+            <PropertyRef Name="id_tipo_ingreso" />
+          </Key>
+          <Property Name="id_tipo_ingreso" Type="Int32" Nullable="false" />
+          <Property Name="ingreso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbl_tarifa" Relationship="Self.FK__tbl_tarif__id_ti__2C3393D0" FromRole="tbl_tipo_ingreso" ToRole="tbl_tarifa" />
+        </EntityType>
+        <EntityType Name="tbl_titulo_cultural">
+          <Key>
+            <PropertyRef Name="id_titulo" />
+          </Key>
+          <Property Name="id_titulo" Type="Int32" Nullable="false" />
+          <Property Name="nombre_titulo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbl_categoria_cultura" Relationship="Self.FK__tbl_categ__valor__4CA06362" FromRole="tbl_titulo_cultural" ToRole="tbl_categoria_cultura" />
+        </EntityType>
+        <EntityType Name="tbl_torneo_interno">
+          <Key>
+            <PropertyRef Name="id_torneo" />
+          </Key>
+          <Property Name="id_torneo" Type="Int32" Nullable="false" />
+          <Property Name="nombre_torneo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_inicio" Type="DateTime" Precision="0" />
+          <Property Name="fecha_fin" Type="DateTime" Precision="0" />
+          <Property Name="hora" Type="Time" Precision="7" />
+          <NavigationProperty Name="tbl_inscripcion" Relationship="Self.FK__tbl_inscr__id_to__1DE57479" FromRole="tbl_torneo_interno" ToRole="tbl_inscripcion" />
+        </EntityType>
+        <Association Name="FK__responsab__id_ca__47DBAE45">
+          <End Role="tbl_categoria" Type="Self.tbl_categoria" Multiplicity="1" />
+          <End Role="responsable_categoria" Type="Self.responsable_categoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_categoria">
+              <PropertyRef Name="id_categoria" />
+            </Principal>
+            <Dependent Role="responsable_categoria">
+              <PropertyRef Name="id_categoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__responsab__id_gr__46E78A0C">
+          <End Role="tbl_grupo" Type="Self.tbl_grupo" Multiplicity="1" />
+          <End Role="responsable_categoria" Type="Self.responsable_categoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_grupo">
+              <PropertyRef Name="id_grupo" />
+            </Principal>
+            <Dependent Role="responsable_categoria">
+              <PropertyRef Name="id_grupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_inscr__id_ac__1CF15040">
+          <End Role="tbl_actividad_empleado" Type="Self.tbl_actividad_empleado" Multiplicity="1" />
+          <End Role="tbl_inscripcion" Type="Self.tbl_inscripcion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_actividad_empleado">
+              <PropertyRef Name="id_actividad" />
+            </Principal>
+            <Dependent Role="tbl_inscripcion">
+              <PropertyRef Name="id_actividad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_asign__id_ca__32E0915F">
+          <End Role="tbl_categoria_usuario" Type="Self.tbl_categoria_usuario" Multiplicity="1" />
+          <End Role="tbl_asignacion_locker" Type="Self.tbl_asignacion_locker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_categoria_usuario">
+              <PropertyRef Name="id_categoria_usuario" />
+            </Principal>
+            <Dependent Role="tbl_asignacion_locker">
+              <PropertyRef Name="id_categoria_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_asign__id_lo__31EC6D26">
+          <End Role="tbl_locker" Type="Self.tbl_locker" Multiplicity="1" />
+          <End Role="tbl_asignacion_locker" Type="Self.tbl_asignacion_locker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_locker">
+              <PropertyRef Name="id_locker" />
+            </Principal>
+            <Dependent Role="tbl_asignacion_locker">
+              <PropertyRef Name="id_locker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_categ__id_ca__4E88ABD4">
+          <End Role="tbl_categoria_usuario" Type="Self.tbl_categoria_usuario" Multiplicity="1" />
+          <End Role="tbl_categoria_cultura" Type="Self.tbl_categoria_cultura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_categoria_usuario">
+              <PropertyRef Name="id_categoria_usuario" />
+            </Principal>
+            <Dependent Role="tbl_categoria_cultura">
+              <PropertyRef Name="id_categoria_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_categ__id_ho__4D94879B">
+          <End Role="tbl_horario" Type="Self.tbl_horario" Multiplicity="1" />
+          <End Role="tbl_categoria_cultura" Type="Self.tbl_categoria_cultura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_horario">
+              <PropertyRef Name="id_horario" />
+            </Principal>
+            <Dependent Role="tbl_categoria_cultura">
+              <PropertyRef Name="id_horario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_categ__valor__4CA06362">
+          <End Role="tbl_titulo_cultural" Type="Self.tbl_titulo_cultural" Multiplicity="0..1" />
+          <End Role="tbl_categoria_cultura" Type="Self.tbl_categoria_cultura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_titulo_cultural">
+              <PropertyRef Name="id_titulo" />
+            </Principal>
+            <Dependent Role="tbl_categoria_cultura">
+              <PropertyRef Name="id_titulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_inscr__id_ca__1BFD2C07">
+          <End Role="tbl_categoria_usuario" Type="Self.tbl_categoria_usuario" Multiplicity="1" />
+          <End Role="tbl_inscripcion" Type="Self.tbl_inscripcion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_categoria_usuario">
+              <PropertyRef Name="id_categoria_usuario" />
+            </Principal>
+            <Dependent Role="tbl_inscripcion">
+              <PropertyRef Name="id_categoria_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_tarif__id_ca__2D27B809">
+          <End Role="tbl_categoria_usuario" Type="Self.tbl_categoria_usuario" Multiplicity="1" />
+          <End Role="tbl_tarifa" Type="Self.tbl_tarifa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_categoria_usuario">
+              <PropertyRef Name="id_categoria_usuario" />
+            </Principal>
+            <Dependent Role="tbl_tarifa">
+              <PropertyRef Name="id_categoria_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_depor__dni_e__22AA2996">
+          <End Role="tbl_entrenador" Type="Self.tbl_entrenador" Multiplicity="1" />
+          <End Role="tbl_deporte" Type="Self.tbl_deporte" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_entrenador">
+              <PropertyRef Name="dni_entrenador" />
+            </Principal>
+            <Dependent Role="tbl_deporte">
+              <PropertyRef Name="dni_entrenador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_entre__id_de__276EDEB3">
+          <End Role="tbl_deporte" Type="Self.tbl_deporte" Multiplicity="1" />
+          <End Role="tbl_entrenamiento" Type="Self.tbl_entrenamiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_deporte">
+              <PropertyRef Name="id_deporte" />
+            </Principal>
+            <Dependent Role="tbl_entrenamiento">
+              <PropertyRef Name="id_deporte" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_inscr__id_to__1DE57479">
+          <End Role="tbl_torneo_interno" Type="Self.tbl_torneo_interno" Multiplicity="1" />
+          <End Role="tbl_inscripcion" Type="Self.tbl_inscripcion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_torneo_interno">
+              <PropertyRef Name="id_torneo" />
+            </Principal>
+            <Dependent Role="tbl_inscripcion">
+              <PropertyRef Name="id_torneo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_tarif__id_ti__2C3393D0">
+          <End Role="tbl_tipo_ingreso" Type="Self.tbl_tipo_ingreso" Multiplicity="1" />
+          <End Role="tbl_tarifa" Type="Self.tbl_tarifa" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_tipo_ingreso">
+              <PropertyRef Name="id_tipo_ingreso" />
+            </Principal>
+            <Dependent Role="tbl_tarifa">
+              <PropertyRef Name="id_tipo_ingreso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="bd_bienestarEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="responsable_categoria" EntityType="Self.responsable_categoria" />
+          <EntitySet Name="tbl_actividad_empleado" EntityType="Self.tbl_actividad_empleado" />
+          <EntitySet Name="tbl_actividad_gimnasio" EntityType="Self.tbl_actividad_gimnasio" />
+          <EntitySet Name="tbl_asignacion_locker" EntityType="Self.tbl_asignacion_locker" />
+          <EntitySet Name="tbl_categoria" EntityType="Self.tbl_categoria" />
+          <EntitySet Name="tbl_categoria_cultura" EntityType="Self.tbl_categoria_cultura" />
+          <EntitySet Name="tbl_categoria_usuario" EntityType="Self.tbl_categoria_usuario" />
+          <EntitySet Name="tbl_deporte" EntityType="Self.tbl_deporte" />
+          <EntitySet Name="tbl_entrenador" EntityType="Self.tbl_entrenador" />
+          <EntitySet Name="tbl_entrenamiento" EntityType="Self.tbl_entrenamiento" />
+          <EntitySet Name="tbl_grupo" EntityType="Self.tbl_grupo" />
+          <EntitySet Name="tbl_horario" EntityType="Self.tbl_horario" />
+          <EntitySet Name="tbl_inscripcion" EntityType="Self.tbl_inscripcion" />
+          <EntitySet Name="tbl_locker" EntityType="Self.tbl_locker" />
+          <EntitySet Name="tbl_tarifa" EntityType="Self.tbl_tarifa" />
+          <EntitySet Name="tbl_tipo_ingreso" EntityType="Self.tbl_tipo_ingreso" />
+          <EntitySet Name="tbl_titulo_cultural" EntityType="Self.tbl_titulo_cultural" />
+          <EntitySet Name="tbl_torneo_interno" EntityType="Self.tbl_torneo_interno" />
+          <AssociationSet Name="FK__responsab__id_ca__47DBAE45" Association="Self.FK__responsab__id_ca__47DBAE45">
+            <End Role="tbl_categoria" EntitySet="tbl_categoria" />
+            <End Role="responsable_categoria" EntitySet="responsable_categoria" />
+          </AssociationSet>
+          <AssociationSet Name="FK__responsab__id_gr__46E78A0C" Association="Self.FK__responsab__id_gr__46E78A0C">
+            <End Role="tbl_grupo" EntitySet="tbl_grupo" />
+            <End Role="responsable_categoria" EntitySet="responsable_categoria" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_inscr__id_ac__1CF15040" Association="Self.FK__tbl_inscr__id_ac__1CF15040">
+            <End Role="tbl_actividad_empleado" EntitySet="tbl_actividad_empleado" />
+            <End Role="tbl_inscripcion" EntitySet="tbl_inscripcion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_asign__id_ca__32E0915F" Association="Self.FK__tbl_asign__id_ca__32E0915F">
+            <End Role="tbl_categoria_usuario" EntitySet="tbl_categoria_usuario" />
+            <End Role="tbl_asignacion_locker" EntitySet="tbl_asignacion_locker" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_asign__id_lo__31EC6D26" Association="Self.FK__tbl_asign__id_lo__31EC6D26">
+            <End Role="tbl_locker" EntitySet="tbl_locker" />
+            <End Role="tbl_asignacion_locker" EntitySet="tbl_asignacion_locker" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_categ__id_ca__4E88ABD4" Association="Self.FK__tbl_categ__id_ca__4E88ABD4">
+            <End Role="tbl_categoria_usuario" EntitySet="tbl_categoria_usuario" />
+            <End Role="tbl_categoria_cultura" EntitySet="tbl_categoria_cultura" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_categ__id_ho__4D94879B" Association="Self.FK__tbl_categ__id_ho__4D94879B">
+            <End Role="tbl_horario" EntitySet="tbl_horario" />
+            <End Role="tbl_categoria_cultura" EntitySet="tbl_categoria_cultura" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_categ__valor__4CA06362" Association="Self.FK__tbl_categ__valor__4CA06362">
+            <End Role="tbl_titulo_cultural" EntitySet="tbl_titulo_cultural" />
+            <End Role="tbl_categoria_cultura" EntitySet="tbl_categoria_cultura" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_inscr__id_ca__1BFD2C07" Association="Self.FK__tbl_inscr__id_ca__1BFD2C07">
+            <End Role="tbl_categoria_usuario" EntitySet="tbl_categoria_usuario" />
+            <End Role="tbl_inscripcion" EntitySet="tbl_inscripcion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_tarif__id_ca__2D27B809" Association="Self.FK__tbl_tarif__id_ca__2D27B809">
+            <End Role="tbl_categoria_usuario" EntitySet="tbl_categoria_usuario" />
+            <End Role="tbl_tarifa" EntitySet="tbl_tarifa" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_depor__dni_e__22AA2996" Association="Self.FK__tbl_depor__dni_e__22AA2996">
+            <End Role="tbl_entrenador" EntitySet="tbl_entrenador" />
+            <End Role="tbl_deporte" EntitySet="tbl_deporte" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_entre__id_de__276EDEB3" Association="Self.FK__tbl_entre__id_de__276EDEB3">
+            <End Role="tbl_deporte" EntitySet="tbl_deporte" />
+            <End Role="tbl_entrenamiento" EntitySet="tbl_entrenamiento" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_inscr__id_to__1DE57479" Association="Self.FK__tbl_inscr__id_to__1DE57479">
+            <End Role="tbl_torneo_interno" EntitySet="tbl_torneo_interno" />
+            <End Role="tbl_inscripcion" EntitySet="tbl_inscripcion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_tarif__id_ti__2C3393D0" Association="Self.FK__tbl_tarif__id_ti__2C3393D0">
+            <End Role="tbl_tipo_ingreso" EntitySet="tbl_tipo_ingreso" />
+            <End Role="tbl_tarifa" EntitySet="tbl_tarifa" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="bd_bienestarModelStoreContainer" CdmEntityContainer="bd_bienestarEntities">
+          <EntitySetMapping Name="responsable_categoria">
+            <EntityTypeMapping TypeName="bd_bienestarModel.responsable_categoria">
+              <MappingFragment StoreEntitySet="responsable_categoria">
+                <ScalarProperty Name="id_responsable" ColumnName="id_responsable" />
+                <ScalarProperty Name="nombre_responsable" ColumnName="nombre_responsable" />
+                <ScalarProperty Name="correo_responsable" ColumnName="correo_responsable" />
+                <ScalarProperty Name="tel_responsable" ColumnName="tel_responsable" />
+                <ScalarProperty Name="coordinador" ColumnName="coordinador" />
+                <ScalarProperty Name="tel_coordinador" ColumnName="tel_coordinador" />
+                <ScalarProperty Name="correo_coordinador" ColumnName="correo_coordinador" />
+                <ScalarProperty Name="id_grupo" ColumnName="id_grupo" />
+                <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_actividad_empleado">
+            <EntityTypeMapping TypeName="bd_bienestarModel.tbl_actividad_empleado">
+              <MappingFragment StoreEntitySet="tbl_actividad_empleado">
+                <ScalarProperty Name="id_actividad" ColumnName="id_actividad" />
+                <ScalarProperty Name="lugar_actividad" ColumnName="lugar_actividad" />
+                <ScalarProperty Name="fecha_actividad" ColumnName="fecha_actividad" />
+                <ScalarProperty Name="hora_actividad" ColumnName="hora_actividad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_actividad_gimnasio">
+            <EntityTypeMapping TypeName="bd_bienestarModel.tbl_actividad_gimnasio">
+              <MappingFragment StoreEntitySet="tbl_actividad_gimnasio">
+                <ScalarProperty Name="id_actividad_gym" ColumnName="id_actividad_gym" />
+                <ScalarProperty Name="nombre_actividad_gym" ColumnName="nombre_actividad_gym" />
+                <ScalarProperty Name="horario" ColumnName="horario" />
+                <ScalarProperty Name="lugar" ColumnName="lugar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_asignacion_locker">
+            <EntityTypeMapping TypeName="bd_bienestarModel.tbl_asignacion_locker">
+              <MappingFragment StoreEntitySet="tbl_asignacion_locker">
+                <ScalarProperty Name="Apellidos_usuario" ColumnName="Apellidos_usuario" />
+                <ScalarProperty Name="Nombre_usuario" ColumnName="Nombre_usuario" />
+                <ScalarProperty Name="dni_usuario" ColumnName="dni_usuario" />
+                <ScalarProperty Name="id_asignacion" ColumnName="id_asignacion" />
+                <ScalarProperty Name="id_locker" ColumnName="id_locker" />
+                <ScalarProperty Name="id_categoria_usuario" ColumnName="id_categoria_usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_categoria">
+            <EntityTypeMapping TypeName="bd_bienestarModel.tbl_categoria">
+              <MappingFragment StoreEntitySet="tbl_categoria">
+                <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
+                <ScalarProperty Name="nombre_categoria" ColumnName="nombre_categoria" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_categoria_cultura">
+            <EntityTypeMapping TypeName="bd_bienestarModel.tbl_categoria_cultura">
+              <MappingFragment StoreEntitySet="tbl_categoria_cultura">
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="id_categoria_cultura" ColumnName="id_categoria_cultura" />
+                <ScalarProperty Name="id_titulo" ColumnName="id_titulo" />
+                <ScalarProperty Name="id_horario" ColumnName="id_horario" />
+                <ScalarProperty Name="id_categoria_usuario" ColumnName="id_categoria_usuario" />
+                <ScalarProperty Name="valor" ColumnName="valor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_categoria_usuario">
+            <EntityTypeMapping TypeName="bd_bienestarModel.tbl_categoria_usuario">
+              <MappingFragment StoreEntitySet="tbl_categoria_usuario">
+                <ScalarProperty Name="id_categoria_usuario" ColumnName="id_categoria_usuario" />
+                <ScalarProperty Name="categoria_usuario" ColumnName="categoria_usuario" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_deporte">
+            <EntityTypeMapping TypeName="bd_bienestarModel.tbl_deporte">
+              <MappingFragment StoreEntitySet="tbl_deporte">
+                <ScalarProperty Name="id_deporte" ColumnName="id_deporte" />
+                <ScalarProperty Name="nombre_deporte" ColumnName="nombre_deporte" />
+                <ScalarProperty Name="valor" ColumnName="valor" />
+                <ScalarProperty Name="dni_entrenador" ColumnName="dni_entrenador" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_entrenador">
+            <EntityTypeMapping TypeName="bd_bienestarModel.tbl_entrenador">
+              <MappingFragment StoreEntitySet="tbl_entrenador">
+                <ScalarProperty Name="dni_entrenador" ColumnName="dni_entrenador" />
+                <ScalarProperty Name="nombre_entrenador" ColumnName="nombre_entrenador" />
+                <ScalarProperty Name="apellidos_entrenador" ColumnName="apellidos_entrenador" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_entrenamiento">
+            <EntityTypeMapping TypeName="bd_bienestarModel.tbl_entrenamiento">
+              <MappingFragment StoreEntitySet="tbl_entrenamiento">
+                <ScalarProperty Name="id_entrenamiento" ColumnName="id_entrenamiento" />
+                <ScalarProperty Name="id_deporte" ColumnName="id_deporte" />
+                <ScalarProperty Name="horario" ColumnName="horario" />
+                <ScalarProperty Name="lugar" ColumnName="lugar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_grupo">
+            <EntityTypeMapping TypeName="bd_bienestarModel.tbl_grupo">
+              <MappingFragment StoreEntitySet="tbl_grupo">
+                <ScalarProperty Name="id_grupo" ColumnName="id_grupo" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_horario">
+            <EntityTypeMapping TypeName="bd_bienestarModel.tbl_horario">
+              <MappingFragment StoreEntitySet="tbl_horario">
+                <ScalarProperty Name="id_horario" ColumnName="id_horario" />
+                <ScalarProperty Name="dia" ColumnName="dia" />
+                <ScalarProperty Name="hora" ColumnName="hora" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_inscripcion">
+            <EntityTypeMapping TypeName="bd_bienestarModel.tbl_inscripcion">
+              <MappingFragment StoreEntitySet="tbl_inscripcion">
+                <ScalarProperty Name="id_inscripcion" ColumnName="id_inscripcion" />
+                <ScalarProperty Name="id_categoria_usuario" ColumnName="id_categoria_usuario" />
+                <ScalarProperty Name="dni_usuario" ColumnName="dni_usuario" />
+                <ScalarProperty Name="nombres" ColumnName="nombres" />
+                <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+                <ScalarProperty Name="programa_academico" ColumnName="programa_academico" />
+                <ScalarProperty Name="unidad_organizativa" ColumnName="unidad_organizativa" />
+                <ScalarProperty Name="id_actividad" ColumnName="id_actividad" />
+                <ScalarProperty Name="id_torneo" ColumnName="id_torneo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_locker">
+            <EntityTypeMapping TypeName="bd_bienestarModel.tbl_locker">
+              <MappingFragment StoreEntitySet="tbl_locker">
+                <ScalarProperty Name="numero" ColumnName="numero" />
+                <ScalarProperty Name="id_locker" ColumnName="id_locker" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_tarifa">
+            <EntityTypeMapping TypeName="bd_bienestarModel.tbl_tarifa">
+              <MappingFragment StoreEntitySet="tbl_tarifa">
+                <ScalarProperty Name="id_tipo_ingreso" ColumnName="id_tipo_ingreso" />
+                <ScalarProperty Name="id_categoria_usuario" ColumnName="id_categoria_usuario" />
+                <ScalarProperty Name="tarifa_ingreso" ColumnName="tarifa_ingreso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_tipo_ingreso">
+            <EntityTypeMapping TypeName="bd_bienestarModel.tbl_tipo_ingreso">
+              <MappingFragment StoreEntitySet="tbl_tipo_ingreso">
+                <ScalarProperty Name="id_tipo_ingreso" ColumnName="id_tipo_ingreso" />
+                <ScalarProperty Name="ingreso" ColumnName="ingreso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_titulo_cultural">
+            <EntityTypeMapping TypeName="bd_bienestarModel.tbl_titulo_cultural">
+              <MappingFragment StoreEntitySet="tbl_titulo_cultural">
+                <ScalarProperty Name="id_titulo" ColumnName="id_titulo" />
+                <ScalarProperty Name="nombre_titulo" ColumnName="nombre_titulo" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_torneo_interno">
+            <EntityTypeMapping TypeName="bd_bienestarModel.tbl_torneo_interno">
+              <MappingFragment StoreEntitySet="tbl_torneo_interno">
+                <ScalarProperty Name="id_torneo" ColumnName="id_torneo" />
+                <ScalarProperty Name="nombre_torneo" ColumnName="nombre_torneo" />
+                <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+                <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
+                <ScalarProperty Name="hora" ColumnName="hora" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

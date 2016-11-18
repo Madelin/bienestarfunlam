@@ -1,0 +1,42 @@
+﻿@model BienestarU.Models.tbl_deporte
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DEPORTE</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre_deporte)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre_deporte)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.valor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.valor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbl_entrenador.nombre_entrenador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbl_entrenador.nombre_entrenador)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_deporte }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

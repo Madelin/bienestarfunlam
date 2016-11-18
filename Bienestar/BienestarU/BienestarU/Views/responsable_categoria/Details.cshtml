@@ -1,0 +1,82 @@
+﻿@model BienestarU.Models.responsable_categoria
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>responsable_categoria</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre_responsable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre_responsable)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.correo_responsable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.correo_responsable)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tel_responsable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tel_responsable)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.coordinador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.coordinador)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tel_coordinador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tel_coordinador)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.correo_coordinador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.correo_coordinador)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbl_categoria.nombre_categoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbl_categoria.nombre_categoria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbl_grupo.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbl_grupo.descripcion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_responsable }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

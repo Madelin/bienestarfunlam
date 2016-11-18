@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="bd_bienestarModelStoreContainer" CdmEntityContainer="bd_bienestarEntities">
+    <EntitySetMapping Name="responsable_categoria">
+      <EntityTypeMapping TypeName="bd_bienestarModel.responsable_categoria">
+        <MappingFragment StoreEntitySet="responsable_categoria">
+          <ScalarProperty Name="id_responsable" ColumnName="id_responsable" />
+          <ScalarProperty Name="nombre_responsable" ColumnName="nombre_responsable" />
+          <ScalarProperty Name="correo_responsable" ColumnName="correo_responsable" />
+          <ScalarProperty Name="tel_responsable" ColumnName="tel_responsable" />
+          <ScalarProperty Name="coordinador" ColumnName="coordinador" />
+          <ScalarProperty Name="tel_coordinador" ColumnName="tel_coordinador" />
+          <ScalarProperty Name="correo_coordinador" ColumnName="correo_coordinador" />
+          <ScalarProperty Name="id_grupo" ColumnName="id_grupo" />
+          <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_actividad_empleado">
+      <EntityTypeMapping TypeName="bd_bienestarModel.tbl_actividad_empleado">
+        <MappingFragment StoreEntitySet="tbl_actividad_empleado">
+          <ScalarProperty Name="id_actividad" ColumnName="id_actividad" />
+          <ScalarProperty Name="lugar_actividad" ColumnName="lugar_actividad" />
+          <ScalarProperty Name="fecha_actividad" ColumnName="fecha_actividad" />
+          <ScalarProperty Name="hora_actividad" ColumnName="hora_actividad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_actividad_gimnasio">
+      <EntityTypeMapping TypeName="bd_bienestarModel.tbl_actividad_gimnasio">
+        <MappingFragment StoreEntitySet="tbl_actividad_gimnasio">
+          <ScalarProperty Name="id_actividad_gym" ColumnName="id_actividad_gym" />
+          <ScalarProperty Name="nombre_actividad_gym" ColumnName="nombre_actividad_gym" />
+          <ScalarProperty Name="horario" ColumnName="horario" />
+          <ScalarProperty Name="lugar" ColumnName="lugar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_asignacion_locker">
+      <EntityTypeMapping TypeName="bd_bienestarModel.tbl_asignacion_locker">
+        <MappingFragment StoreEntitySet="tbl_asignacion_locker">
+          <ScalarProperty Name="Apellidos_usuario" ColumnName="Apellidos_usuario" />
+          <ScalarProperty Name="Nombre_usuario" ColumnName="Nombre_usuario" />
+          <ScalarProperty Name="dni_usuario" ColumnName="dni_usuario" />
+          <ScalarProperty Name="id_asignacion" ColumnName="id_asignacion" />
+          <ScalarProperty Name="id_locker" ColumnName="id_locker" />
+          <ScalarProperty Name="id_categoria_usuario" ColumnName="id_categoria_usuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_categoria">
+      <EntityTypeMapping TypeName="bd_bienestarModel.tbl_categoria">
+        <MappingFragment StoreEntitySet="tbl_categoria">
+          <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
+          <ScalarProperty Name="nombre_categoria" ColumnName="nombre_categoria" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_categoria_cultura">
+      <EntityTypeMapping TypeName="bd_bienestarModel.tbl_categoria_cultura">
+        <MappingFragment StoreEntitySet="tbl_categoria_cultura">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="id_categoria_cultura" ColumnName="id_categoria_cultura" />
+          <ScalarProperty Name="id_titulo" ColumnName="id_titulo" />
+          <ScalarProperty Name="id_horario" ColumnName="id_horario" />
+          <ScalarProperty Name="id_categoria_usuario" ColumnName="id_categoria_usuario" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_categoria_usuario">
+      <EntityTypeMapping TypeName="bd_bienestarModel.tbl_categoria_usuario">
+        <MappingFragment StoreEntitySet="tbl_categoria_usuario">
+          <ScalarProperty Name="id_categoria_usuario" ColumnName="id_categoria_usuario" />
+          <ScalarProperty Name="categoria_usuario" ColumnName="categoria_usuario" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_deporte">
+      <EntityTypeMapping TypeName="bd_bienestarModel.tbl_deporte">
+        <MappingFragment StoreEntitySet="tbl_deporte">
+          <ScalarProperty Name="id_deporte" ColumnName="id_deporte" />
+          <ScalarProperty Name="nombre_deporte" ColumnName="nombre_deporte" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="dni_entrenador" ColumnName="dni_entrenador" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_entrenador">
+      <EntityTypeMapping TypeName="bd_bienestarModel.tbl_entrenador">
+        <MappingFragment StoreEntitySet="tbl_entrenador">
+          <ScalarProperty Name="dni_entrenador" ColumnName="dni_entrenador" />
+          <ScalarProperty Name="nombre_entrenador" ColumnName="nombre_entrenador" />
+          <ScalarProperty Name="apellidos_entrenador" ColumnName="apellidos_entrenador" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_entrenamiento">
+      <EntityTypeMapping TypeName="bd_bienestarModel.tbl_entrenamiento">
+        <MappingFragment StoreEntitySet="tbl_entrenamiento">
+          <ScalarProperty Name="id_entrenamiento" ColumnName="id_entrenamiento" />
+          <ScalarProperty Name="id_deporte" ColumnName="id_deporte" />
+          <ScalarProperty Name="horario" ColumnName="horario" />
+          <ScalarProperty Name="lugar" ColumnName="lugar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_grupo">
+      <EntityTypeMapping TypeName="bd_bienestarModel.tbl_grupo">
+        <MappingFragment StoreEntitySet="tbl_grupo">
+          <ScalarProperty Name="id_grupo" ColumnName="id_grupo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_horario">
+      <EntityTypeMapping TypeName="bd_bienestarModel.tbl_horario">
+        <MappingFragment StoreEntitySet="tbl_horario">
+          <ScalarProperty Name="id_horario" ColumnName="id_horario" />
+          <ScalarProperty Name="dia" ColumnName="dia" />
+          <ScalarProperty Name="hora" ColumnName="hora" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_inscripcion">
+      <EntityTypeMapping TypeName="bd_bienestarModel.tbl_inscripcion">
+        <MappingFragment StoreEntitySet="tbl_inscripcion">
+          <ScalarProperty Name="id_inscripcion" ColumnName="id_inscripcion" />
+          <ScalarProperty Name="id_categoria_usuario" ColumnName="id_categoria_usuario" />
+          <ScalarProperty Name="dni_usuario" ColumnName="dni_usuario" />
+          <ScalarProperty Name="nombres" ColumnName="nombres" />
+          <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+          <ScalarProperty Name="programa_academico" ColumnName="programa_academico" />
+          <ScalarProperty Name="unidad_organizativa" ColumnName="unidad_organizativa" />
+          <ScalarProperty Name="id_actividad" ColumnName="id_actividad" />
+          <ScalarProperty Name="id_torneo" ColumnName="id_torneo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_locker">
+      <EntityTypeMapping TypeName="bd_bienestarModel.tbl_locker">
+        <MappingFragment StoreEntitySet="tbl_locker">
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="id_locker" ColumnName="id_locker" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_tarifa">
+      <EntityTypeMapping TypeName="bd_bienestarModel.tbl_tarifa">
+        <MappingFragment StoreEntitySet="tbl_tarifa">
+          <ScalarProperty Name="id_tipo_ingreso" ColumnName="id_tipo_ingreso" />
+          <ScalarProperty Name="id_categoria_usuario" ColumnName="id_categoria_usuario" />
+          <ScalarProperty Name="tarifa_ingreso" ColumnName="tarifa_ingreso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_tipo_ingreso">
+      <EntityTypeMapping TypeName="bd_bienestarModel.tbl_tipo_ingreso">
+        <MappingFragment StoreEntitySet="tbl_tipo_ingreso">
+          <ScalarProperty Name="id_tipo_ingreso" ColumnName="id_tipo_ingreso" />
+          <ScalarProperty Name="ingreso" ColumnName="ingreso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_titulo_cultural">
+      <EntityTypeMapping TypeName="bd_bienestarModel.tbl_titulo_cultural">
+        <MappingFragment StoreEntitySet="tbl_titulo_cultural">
+          <ScalarProperty Name="id_titulo" ColumnName="id_titulo" />
+          <ScalarProperty Name="nombre_titulo" ColumnName="nombre_titulo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_torneo_interno">
+      <EntityTypeMapping TypeName="bd_bienestarModel.tbl_torneo_interno">
+        <MappingFragment StoreEntitySet="tbl_torneo_interno">
+          <ScalarProperty Name="id_torneo" ColumnName="id_torneo" />
+          <ScalarProperty Name="nombre_torneo" ColumnName="nombre_torneo" />
+          <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+          <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
+          <ScalarProperty Name="hora" ColumnName="hora" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

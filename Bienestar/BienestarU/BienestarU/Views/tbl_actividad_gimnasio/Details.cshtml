@@ -1,0 +1,42 @@
+﻿@model BienestarU.Models.tbl_actividad_gimnasio
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ACTIVIDADES GIMNASIO</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre_actividad_gym)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre_actividad_gym)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.horario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.horario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lugar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lugar)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_actividad_gym }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

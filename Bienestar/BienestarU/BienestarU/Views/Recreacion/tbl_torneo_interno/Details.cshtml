@@ -1,0 +1,50 @@
+﻿@model BienestarU.Models.tbl_torneo_interno
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbl_torneo_interno</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre_torneo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre_torneo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_inicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_inicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_fin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_fin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hora)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_torneo }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

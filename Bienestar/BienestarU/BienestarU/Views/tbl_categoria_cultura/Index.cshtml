@@ -1,0 +1,57 @@
+﻿@model IEnumerable<BienestarU.Models.tbl_categoria_cultura>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>CATEGORIAS CULTURA</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.valor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tbl_categoria_usuario.categoria_usuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tbl_horario.dia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tbl_titulo_cultural.nombre_titulo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.valor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tbl_categoria_usuario.categoria_usuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tbl_horario.dia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tbl_titulo_cultural.nombre_titulo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_categoria_cultura }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_categoria_cultura }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_categoria_cultura })
+        </td>
+    </tr>
+}
+
+</table>

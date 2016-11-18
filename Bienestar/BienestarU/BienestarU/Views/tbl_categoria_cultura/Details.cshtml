@@ -1,0 +1,58 @@
+﻿@model BienestarU.Models.tbl_categoria_cultura
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CATEGORIAS CULTURA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.valor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.valor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbl_categoria_usuario.categoria_usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbl_categoria_usuario.categoria_usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbl_horario.dia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbl_horario.dia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbl_titulo_cultural.nombre_titulo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbl_titulo_cultural.nombre_titulo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_categoria_cultura }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

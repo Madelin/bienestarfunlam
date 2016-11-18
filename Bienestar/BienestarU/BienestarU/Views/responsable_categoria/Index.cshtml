@@ -1,0 +1,75 @@
+﻿@model IEnumerable<BienestarU.Models.responsable_categoria>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Responsables de Categorias</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre_responsable)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.correo_responsable)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tel_responsable)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.coordinador)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tel_coordinador)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.correo_coordinador)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tbl_categoria.nombre_categoria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tbl_grupo.descripcion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre_responsable)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.correo_responsable)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tel_responsable)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.coordinador)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tel_coordinador)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.correo_coordinador)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tbl_categoria.nombre_categoria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tbl_grupo.descripcion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_responsable }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_responsable }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_responsable })
+        </td>
+    </tr>
+}
+
+</table>
